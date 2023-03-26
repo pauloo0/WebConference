@@ -8,7 +8,7 @@ function Sponsors() {
   return (
     <section
       id='sponsors'
-      className='px-32 flex flex-col justify-center items-center'
+      className='px-32 flex flex-col justify-center items-center text-slate-800'
     >
       <div id='sponsors-title' className='mt-24'>
         <h1 className='mt-24 uppercase font-bold text-3xl text-center'>

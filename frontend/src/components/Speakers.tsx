@@ -8,7 +8,7 @@ function Speakers() {
   return (
     <section
       id='speakers'
-      className='px-32 flex flex-col justify between items-center text-slate-800'
+      className='px-32 flex flex-col justify-between items-center text-slate-800'
     >
       <div id='speakers-title' className='mt-24'>
         <h1 className='mt-24 uppercase font-bold text-3xl text-center'>

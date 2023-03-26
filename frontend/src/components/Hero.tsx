@@ -44,6 +44,8 @@ function Hero() {
               <div id='inputs' className='h-1/2 flex flex-col justify-between'>
                 <input
                   type='text'
+                  name='username'
+                  id='register-username'
                   value={registry.username}
                   onChange={(e) =>
                     setRegistry({ ...registry, username: e.target.value })
@@ -54,6 +56,8 @@ function Hero() {
                 />
                 <input
                   type='email'
+                  name='email'
+                  id='register-email'
                   value={registry.email}
                   onChange={(e) =>
                     setRegistry({ ...registry, email: e.target.value })
