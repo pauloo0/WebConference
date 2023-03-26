@@ -1,3 +1,4 @@
+import About from './components/About'
 import Contacts from './components/Contacts'
 import Footer from './components/Footer'
 import Hero from './components/Hero'
@@ -10,6 +11,7 @@ function App() {
     <div className='font-montserrat'>
       <Navbar />
       <Hero />
+      <About />
       <Speakers />
       <Sponsors />
       <Contacts />

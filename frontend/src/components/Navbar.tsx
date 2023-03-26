@@ -2,7 +2,7 @@ import React from 'react'
 
 function Navbar() {
   return (
-    <nav className='fixed top-0 w-full h-12 px-12 flex justify-between items-center text-white'>
+    <nav className='fixed top-0 w-full h-12 px-32 flex justify-between items-center text-white'>
       <a href='#page_top' className='text-2xl text-gray-300'>
         WebConference
       </a>

@@ -31,7 +31,7 @@ function Hero() {
   return (
     <>
       {showRegister && (
-        <div className='fixed inset-0 bg-gray-800 bg-opacity-90 grid place-items-center'>
+        <div className='fixed inset-0 bg-gray-800 bg-opacity-40 grid place-items-center'>
           <div className='w-1/3 h-1/3 min-w-[600px] min-h-[300px] bg-white rounded-xl relative grid place-items-center'>
             <CgClose
               className='text-slate-800 text-xl absolute right-6 top-4 cursor-pointer'
@@ -85,8 +85,10 @@ function Hero() {
       )}
       <header className='bg-hero bg-scroll bg-center bg-cover bg-no-repeat text-white'>
         <div className='h-screen flex flex-col justify-center items-center bg-gray-900 bg-opacity-70'>
-          <p className='text-5xl font-playfairDisplay'>Vamos celebrar a Web!</p>
-          <p className='mt-8 text-8xl uppercase font-bold'>WebConference</p>
+          <h2 className='text-5xl font-playfairDisplay'>
+            Vamos celebrar a Web!
+          </h2>
+          <h1 className='mt-8 text-8xl uppercase font-bold'>WebConference</h1>
           <button
             className='mt-12 px-6 py-4 rounded-md bg-sky-600 hover:bg-sky-700 focus:bg-sky-700 font-bold'
             onClick={() => setShowRegister(true)}
