@@ -1,8 +1,8 @@
 import React from 'react'
-import envatoLogo from '../assets/sponsors/envato.svg'
-import designmodoLogo from '../assets/sponsors/designmodo.svg'
-import themeforestLogo from '../assets/sponsors/themeforest.svg'
-import creativemarketLogo from '../assets/sponsors/creativemarket.svg'
+import envatoLogo from '../../../assets/sponsors/envato.svg'
+import designmodoLogo from '../../../assets/sponsors/designmodo.svg'
+import themeforestLogo from '../../../assets/sponsors/themeforest.svg'
+import creativemarketLogo from '../../../assets/sponsors/creativemarket.svg'
 
 function Sponsors() {
   return (

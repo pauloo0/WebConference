@@ -1,21 +1,16 @@
-import About from './components/About'
-import Contacts from './components/Contacts'
-import Footer from './components/Footer'
-import Hero from './components/Hero'
-import Navbar from './components/Navbar'
-import Speakers from './components/Speakers'
-import Sponsors from './components/Sponsors'
+import Home from './pages/front/Home'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Admin from './pages/admin/Admin'
 
 function App() {
   return (
     <div className='font-montserrat'>
-      <Navbar />
-      <Hero />
-      <About />
-      <Speakers />
-      <Sponsors />
-      <Contacts />
-      <Footer />
+      <BrowserRouter>
+        <Routes>
+          <Route path='*' element={<Home />} />
+          <Route path='/admin/*' element={<Admin />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }
