@@ -2,30 +2,33 @@ import React from 'react'
 import { BsMegaphoneFill, BsCashCoin } from 'react-icons/bs'
 import { FaUsers } from 'react-icons/fa'
 
-function Sidebar() {
-  const size: number = 200
+interface SidebarProps {
+  isExpanded: boolean
+}
+
+function Sidebar({ isExpanded }: SidebarProps) {
+  const width = isExpanded ? 'w-48' : 'w-14'
 
   return (
-    <div
-      className={`w-[${size}px] h-screen fixed left-0 bg-slate-800 text-white`}
+    <section
+      className={`bg-gray-700 h-screen ${width} transition-width ease-in-out duration-300`}
     >
-      <div className='mt-12'>
-        <ul className='w-full'>
-          <li className='p-4 cursor-pointer hover:bg-slate-900 flex items-center'>
-            <FaUsers className='mr-2' />
-            {size > 50 && <span>Participantes</span>}
-          </li>
-          <li className='p-4 cursor-pointer hover:bg-slate-900 flex items-center'>
-            <BsMegaphoneFill className='mr-2' />
-            {size > 50 && <span>Oradores</span>}
-          </li>
-          <li className='p-4 cursor-pointer hover:bg-slate-900 flex items-center'>
-            <BsCashCoin className='mr-2' />
-            {size > 50 && <span>Sponsors</span>}
-          </li>
-        </ul>
-      </div>
-    </div>
+      <ul className={`overflow-hidden flex flex-col mt-4 text-gray-200`}>
+        <li className='flex items-center p-4 hover:bg-gray-800 cursor-pointer'>
+          <FaUsers className={`mr-2 ${isExpanded ? '' : 'text-lg'}`} />
+
+          <span>{isExpanded ? 'Participantes' : ''}</span>
+        </li>
+        <li className='flex items-center p-4 hover:bg-gray-800 cursor-pointer'>
+          <BsMegaphoneFill className='mr-2' />
+          {isExpanded && <span>Oradores</span>}
+        </li>
+        <li className='flex items-center p-4 hover:bg-gray-800 cursor-pointer'>
+          <BsCashCoin className='mr-2' />
+          {isExpanded && <span>Sponsors</span>}
+        </li>
+      </ul>
+    </section>
   )
 }
 
