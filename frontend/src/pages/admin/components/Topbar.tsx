@@ -13,9 +13,9 @@ function Topbar({ onToggleSidebar }: TopbarProps) {
   }
 
   return (
-    <section className='flex items-center justify-between bg-gray-800 text-white h-12 px-4'>
+    <section className='flex items-center justify-between bg-gray-800 text-white tracking-wider h-12 px-4'>
       <div className='flex items-center'>
-        <p className='text-xl mr-2'>WebConference</p>
+        <p className='text-xl mr-4'>WebConference</p>
         <button onClick={onToggleSidebar}>
           <FaBars className='p-0.5 cursor-pointer text-2xl hover:text-sky-300 focus:text-sky-300' />
         </button>
