@@ -14,19 +14,24 @@ function Sidebar({ isExpanded }: SidebarProps) {
       className={`bg-gray-700 h-screen ${width} transition-width ease-in-out duration-300`}
     >
       <ul className={`overflow-hidden flex flex-col mt-4 text-gray-200`}>
-        <li className='flex items-center p-4 hover:bg-gray-800 cursor-pointer'>
-          <FaUsers className={`mr-2 ${isExpanded ? '' : 'text-lg'}`} />
-
-          <span>{isExpanded ? 'Participantes' : ''}</span>
-        </li>
-        <li className='flex items-center p-4 hover:bg-gray-800 cursor-pointer'>
-          <BsMegaphoneFill className='mr-2' />
-          {isExpanded && <span>Oradores</span>}
-        </li>
-        <li className='flex items-center p-4 hover:bg-gray-800 cursor-pointer'>
-          <BsCashCoin className='mr-2' />
-          {isExpanded && <span>Sponsors</span>}
-        </li>
+        <a href='/admin/participantes'>
+          <li className='flex items-center p-4 hover:bg-gray-800 cursor-pointer'>
+            <FaUsers className={`mr-2 ${isExpanded ? '' : 'text-lg'}`} />
+            <span>{isExpanded ? 'Participantes' : ''}</span>
+          </li>
+        </a>
+        <a href='/admin/oradores'>
+          <li className='flex items-center p-4 hover:bg-gray-800 cursor-pointer'>
+            <BsMegaphoneFill className='mr-2' />
+            {isExpanded && <span>Oradores</span>}
+          </li>
+        </a>
+        <a href='/admin/sponsors'>
+          <li className='flex items-center p-4 hover:bg-gray-800 cursor-pointer'>
+            <BsCashCoin className='mr-2' />
+            {isExpanded && <span>Sponsors</span>}
+          </li>
+        </a>
       </ul>
     </section>
   )
