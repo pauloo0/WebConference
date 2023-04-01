@@ -32,7 +32,7 @@ function Admin({ content }: MainProps) {
       />
       <div className='flex flex-1 overflow-y-scroll'>
         <Sidebar isExpanded={isSidebarExpanded} />
-        <main className='flex-1'>
+        <main className='flex-1 bg-gray-100'>
           <Content />
         </main>
       </div>

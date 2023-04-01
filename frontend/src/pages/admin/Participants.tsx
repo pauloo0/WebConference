@@ -1,4 +1,4 @@
-import { BsTrashFill } from 'react-icons/bs'
+import { FaTrashAlt } from 'react-icons/fa'
 
 interface IPeople {
   id: number
@@ -26,9 +26,9 @@ export function Participants() {
   ]
 
   return (
-    <div className='mx-12 my-24 text-slate-800'>
+    <div className='mx-8 my-12 text-slate-800'>
       <section id='participants-title'>
-        <h1 className='text-8xl'>Participantes</h1>
+        <h1 className='text-7xl'>Participantes</h1>
         <p className='text-lg my-4'>Gestão de inscritos na WebConference</p>
       </section>
       <hr className='my-2' />
@@ -46,7 +46,7 @@ export function Participants() {
             <tr className='bg-slate-500 text-slate-50 text-left'>
               <th className='p-2 w-1/12'>#</th>
               <th className='p-2 w-3/12'>Nome</th>
-              <th className='p-2 w-2/12 '>E-mail</th>
+              <th className='p-2 w-2/12'>E-mail</th>
               <th className='p-2 w-1/12'>Ações</th>
             </tr>
           </thead>
@@ -57,7 +57,7 @@ export function Participants() {
                 <td className='p-2'>{person.name}</td>
                 <td className='p-2'>{person.email}</td>
                 <td className='p-2'>
-                  <BsTrashFill
+                  <FaTrashAlt
                     className='cursor-pointer hover:text-red-500'
                     onClick={() => console.log(person.id)}
                   />
