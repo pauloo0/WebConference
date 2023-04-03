@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { FaTrashAlt, FaEdit } from 'react-icons/fa'
 
 interface ISpeaker {
-  id?: number
+  id?: number | undefined
   name: string
   position: string
   photo: string
@@ -29,13 +29,46 @@ export function Speakers() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
+    const speakerExists: ISpeaker | undefined = speakers.find(
+      (speaker: ISpeaker) => speaker.name === newSpeaker.name
+    )
+
+    if (speakerExists) {
+      const newSpeakers: ISpeaker[] = speakers.filter(
+        (speaker: ISpeaker) => speaker.id !== speakerExists.id
+      )
+
+      setSpeakers(newSpeakers)
+    }
+
     const newSpeakerId: number =
       speakers.length > 0
         ? Math.max(...speakers.map((speaker: ISpeaker) => speaker.id ?? 0)) + 1
         : 1
 
     setSpeakers([...speakers, { id: newSpeakerId, ...newSpeaker }])
+
     setNewSpeaker(clearSpeaker)
+  }
+
+  const handleEdit = (speakerId: number | undefined) => {
+    if (speakerId !== undefined) {
+      const editSpeaker: ISpeaker | undefined = speakers.find(
+        (speaker: ISpeaker) => speaker.id === speakerId
+      )
+
+      if (editSpeaker !== undefined) {
+        setNewSpeaker(editSpeaker)
+      }
+    }
+  }
+
+  const handleDelete = (speakerId: number | undefined) => {
+    const newSpeakers: ISpeaker[] = speakers.filter(
+      (speaker: ISpeaker) => speaker.id !== speakerId
+    )
+
+    setSpeakers(newSpeakers)
   }
 
   return (
@@ -223,11 +256,11 @@ export function Speakers() {
                   <td className='p-2 flex'>
                     <FaEdit
                       className='cursor-pointer hover:text-amber-400 mr-2'
-                      onClick={() => console.log(`Edit ${speaker.id}`)}
+                      onClick={() => handleEdit(speaker.id)}
                     />
                     <FaTrashAlt
                       className='cursor-pointer hover:text-red-500'
-                      onClick={() => console.log(`Delete ${speaker.id}`)}
+                      onClick={() => handleDelete(speaker.id)}
                     />
                   </td>
                 </tr>
