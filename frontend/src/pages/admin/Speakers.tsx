@@ -29,11 +29,13 @@ export function Speakers() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    const newSpeakerId: number = !speakers
-      ? 1
-      : Math.max(...speakers.map((speaker: ISpeaker) => speaker.id ?? 0)) + 1
+    const newSpeakerId: number =
+      speakers.length > 0
+        ? Math.max(...speakers.map((speaker: ISpeaker) => speaker.id ?? 0)) + 1
+        : 1
 
     setSpeakers([...speakers, { id: newSpeakerId, ...newSpeaker }])
+    setNewSpeaker(clearSpeaker)
   }
 
   return (
