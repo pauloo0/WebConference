@@ -29,18 +29,6 @@ export function Speakers() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    const speakerExists: ISpeaker | undefined = speakers.find(
-      (speaker: ISpeaker) => speaker.name === newSpeaker.name
-    )
-
-    if (speakerExists) {
-      const newSpeakers: ISpeaker[] = speakers.filter(
-        (speaker: ISpeaker) => speaker.id !== speakerExists.id
-      )
-
-      setSpeakers(newSpeakers)
-    }
-
     const newSpeakerId: number =
       speakers.length > 0
         ? Math.max(...speakers.map((speaker: ISpeaker) => speaker.id ?? 0)) + 1
