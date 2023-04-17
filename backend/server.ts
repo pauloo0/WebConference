@@ -1,19 +1,18 @@
 import express from 'express'
 import sequelize from './config/connectMySQL'
-import bodyParser from 'body-parser'
+import cors from 'cors'
+
+const host = process.env.HOST || 'localhost'
+const port = process.env.PORT || 3000
 
 const app = express()
 
-//use body-parser middleware
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use('/assets', express.static('assets'))
+app.use('/views', express.static('views'))
 
-// get the port from the environment variable or use 3000
-const port = process.env.PORT || 3000
-
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+app.use(cors())
+app.use(cors({ exposedHeaders: ['Location'] }))
+const permitedLinker = ['localhost', '127.0.0.1']
 
 app.listen(port, async () => {
   try {
@@ -25,3 +24,6 @@ app.listen(port, async () => {
     console.error('Unable to connect to the database:', error)
   }
 })
+
+export default app
+require('./loader.ts')
